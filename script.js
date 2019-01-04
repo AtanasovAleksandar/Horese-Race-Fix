@@ -69,7 +69,11 @@ function runHorse1() {
     horse = document.getElementById("horse-1");
     horse.src = "img/run.gif";
     pos1 = 0;
-    let speed = Math.floor((Math.random() * 15) + 4);
+    let speed = Math.random() * 16;
+    if (speed >= 0 || speed <= 4) {
+        speed += 4
+    }
+    let attack = Math.floor(speed);
     console.log(speed);
     horseOneSpeed = speed
     animation1 = setInterval(move, horseOneSpeed);
@@ -92,11 +96,9 @@ function runHorse1() {
             pos1++;
             horse.style.left = pos1 + "px";
 
-            if (pos1 == 400 && horseOneSpeed == 14 || pos1 == 800 && horseOneSpeed == 5) {
+            if (pos5 == 500 && attack == 14 || pos5 == 950 && attack == 4 || pos5 == 750 && attack == 9 ) {
                 horse.src = "img/attack .gif";
                 clearInterval(animation1)
-            } else if (pos1 === 400) {
-                checkEqual()
             }
         }
     }
@@ -106,7 +108,11 @@ function runHorse2() {
     horse2 = document.getElementById("horse-2");
     horse2.src = "img/run.gif";
     pos2 = 0;
-    let speed = Math.floor((Math.random() * 15) + 4);
+    let speed = Math.random() * 16;
+    if (speed >= 0 || speed <= 4) {
+        speed += 4
+    }
+    let attack = Math.floor(speed);
     console.log(speed)
     horseTwoSpeed = speed
     animation2 = setInterval(move, horseTwoSpeed);
@@ -128,7 +134,7 @@ function runHorse2() {
         } else {
             pos2++;
             horse2.style.left = pos2 + "px";
-            if (pos2 == 350 && horseTwoSpeed == 14 || pos2 == 900 && horseTwoSpeed == 5) {
+            if (pos5 == 500 && attack == 14 || pos5 == 950 && attack == 4 || pos5 == 750 && attack == 9 ) {
                 horse2.src = "img/attack .gif";
                 clearInterval(animation2)
             }
@@ -140,7 +146,11 @@ function runHorse3() {
     horse3 = document.getElementById("horse-3");
     horse3.src = "img/run.gif";
     pos3 = 0;
-    let speed = Math.floor((Math.random() * 15) + 4);
+    let speed = Math.random() * 16;
+    if (speed >= 0 || speed <= 4) {
+        speed += 4
+    }
+    let attack = Math.floor(speed);
     console.log(speed)
     horseThreeSpeed = speed
     animation3 = setInterval(move, horseThreeSpeed);
@@ -163,11 +173,9 @@ function runHorse3() {
             pos3++;
             horse3.style.left = pos3 + "px";
 
-            if (pos3 == 350 && horseThreeSpeed == 14 || pos3 == 1000 && horseThreeSpeed == 5) {
+            if (pos5 == 500 && attack == 14 || pos5 == 950 && attack == 4 || pos5 == 750 && attack == 9 ) {
                 horse3.src = "img/attack .gif";
                 clearInterval(animation3)
-            } else if (pos3 === 300) {
-                checkEqual()
             }
         }
     }
@@ -177,8 +185,12 @@ function runHorse4() {
     horse4 = document.getElementById("horse-4");
     horse4.src = "img/run.gif";
     pos4 = 0;
-    let speed = Math.floor((Math.random() * 15) + 4);
+    let speed = Math.random() * 16;
+    if (speed >= 0 || speed <= 4) {
+        speed += 4
+    }
     console.log(speed)
+    let attack = Math.floor(speed);
     horseFourSpeed = speed
     animation4 = setInterval(move, horseFourSpeed);
     function move() {
@@ -200,11 +212,9 @@ function runHorse4() {
             pos4++;
             horse4.style.left = pos4 + "px";
 
-            if (pos4 == 400 && horseFourSpeed == 14 || pos4 == 800 && horseFourSpeed == 5) {
+            if (pos5 == 500 && attack == 14 || pos5 == 950 && attack == 4 || pos5 == 750 && attack == 9 ) {
                 horse4.src = "img/attack .gif";
                 clearInterval(animation4)
-            } else if (pos4 === 200) {
-                checkEqual()
             }
         }
     }
@@ -214,10 +224,13 @@ function runHorse5() {
     horse5 = document.getElementById("horse-5");
     horse5.src = "img/run.gif";
     pos5 = 0;
-    let speed = Math.floor((Math.random() * 15) + 4);
+    let speed = Math.random() * 16;
+    if (speed >= 0 || speed <= 4) {
+        speed += 4
+    }
     console.log(speed)
+    let attack = Math.floor(speed);
     horseFiveSpeed = speed
-    checkEqual()
     animation5 = setInterval(move, horseFiveSpeed);
     function move() {
         if (pos5 == distance) {
@@ -238,7 +251,7 @@ function runHorse5() {
             pos5++;
             horse5.style.left = pos5 + "px";
 
-            if (pos5 == 500 && horseFiveSpeed == 14 || pos5 == 950 && horseFiveSpeed == 5) {
+            if (pos5 == 500 && attack == 14 || pos5 == 950 && attack == 4 || pos5 == 750 && attack == 9 ) {
                 horse5.src = "img/attack .gif";
                 clearInterval(animation5)
             }
@@ -294,119 +307,4 @@ function getWinners() {
     id1.innerText = first;
     id2.innerText = second;
     id3.innerText = third;
-}
-
-
-function checkEqual() {
-    if (horseOneSpeed == horseTwoSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseOneSpeed += 4;
-        } else {
-            horseTwoSpeed += 2;
-        }
-        console.log(horseOneSpeed)
-    }
-
-    if (horseOneSpeed == horseThreeSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseThreeSpeed += 4;
-        } else {
-            horseTwoSpeed += 2;
-        }
-        console.log(horseThreeSpeed)
-    }
-
-    if (horseTwoSpeed == horseThreeSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseTwoSpeed += 4;
-        } else {
-            horseThreeSpeed += 2;
-        }
-        console.log(horseThreeSpeed)
-    }
-
-    if (horseOneSpeed == horseThreeSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseTwoSpeed += 4;
-        } else {
-            horseOneSpeed += 2;
-        }
-        console.log(horseOneSpeed)
-    }
-
-    if (horseThreeSpeed == horseFiveSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseThreeSpeed += 4;
-        } else {
-            horseFiveSpeed += 2;
-        }
-        console.log(horseThreeSpeed)
-    }
-
-    if (horseFourSpeed == horseThreeSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseFourSpeed += 4;
-        } else {
-            horseThreeSpeed += 2;
-        }
-        console.log(horseFourSpeed)
-    }
-
-    if (horseFourSpeed == horseTwoSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseFourSpeed += 4;
-        } else {
-            horseTwoSpeed += 2;
-        }
-        console.log(horseFourSpeed)
-    }
-
-    if (horseFiveSpeed == horseTwoSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseFiveSpeed += 4;
-        } else {
-            horseTwoSpeed += 2;
-        }
-        console.log(horseFiveSpeed)
-    }
-
-    if (horseFiveSpeed == horseOneSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseFiveSpeed += 4;
-        } else {
-            horseOneSpeed += 2;
-        }
-        console.log(horseFiveSpeed)
-    }
-
-    if (horseOneSpeed == horseFourSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseOneSpeed += 4;
-        } else {
-            horseFourSpeed += 2;
-        }
-        console.log(horseOneSpeed)
-    }
-
-    if (horseTwoSpeed == horseFourSpeed) {
-        let pickRandom = Math.floor(Math.random() * 2);
-        if (pickRandom == 0) {
-            horseTwoSpeed += 4;
-        } else {
-            horseFourSpeed += 2;
-        }
-        console.log(horseTwoSpeed)
-    }
-
-
 }
